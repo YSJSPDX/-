@@ -6,7 +6,7 @@ import 'package:jd_app/provider/category_page_provider.dart';
 import 'package:jd_app/provider/product_list_provider.dart';
 import 'package:jd_app/res/list.dart';
 import 'package:provider/provider.dart';
-
+import 'package:jd_app/res/conlist.dart';
 
 class CategoryPage extends StatefulWidget {
   CategoryPage({Key key}) : super(key: key);
@@ -83,18 +83,18 @@ class _CategoryPageState extends State<CategoryPage> {
     List<Widget> list = List<Widget>();
 
     //处理数据
-    for (var i = 0; i < contentList.length; i++) {
+    for (var i = 0; i < 1; i++) {
       list.add(Container(
         height: 30.0,
         margin: const EdgeInsets.only(left: 10.0, top: 10.0),
         child: Text(
-          "${contentList[i].title}",
+         lists[i].title,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
         ),
       ));
       //商品数据容器
       List<Widget> descList = List<Widget>();
-      for (var j = 0; j < contentList[i].desc.length; j++) {
+      for (var i = 1; i < 11; i++) {
         descList.add(InkWell(
           child: Container(
             width: 60.0,
@@ -102,34 +102,35 @@ class _CategoryPageState extends State<CategoryPage> {
             child: Column(
               children: <Widget>[
                 Image.asset(
-                  "assets${contentList[i].desc[j].img}",
+                  lists[i].img,
                   width: 50.0,
                   height: 50.0,
                 ),
-                Text("${contentList[i].desc[j].text}")
+                Text(
+                  lists[i].text
+                  )
               ],
             ),
           ),
           onTap: () {
             //前往商品页面
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context)=>
-              ChangeNotifierProvider<ProductListProvider>(
-                create: (context){
-                  ProductListProvider provider=ProductListProvider();
-                  provider.loadProductList();
-                  return provider;
-                },
-                child:  Consumer<ProductListProvider>(
-                  builder: (_,provider,__){
-                    return Container(
-                      child:ProductListPage(title:contentList[i].desc[j].text) ,
-                    );
-                  },
-                ),
-              )
-              
-              ));
+                builder: (context) =>
+                    ChangeNotifierProvider<ProductListProvider>(
+                      create: (context) {
+                        ProductListProvider provider = ProductListProvider();
+                        provider.loadProductList();
+                        return provider;
+                      },
+                      child: Consumer<ProductListProvider>(
+                        builder: (_, provider, __) {
+                          return Container(
+                            child: ProductListPage(
+                                title: lists[i].text),
+                          );
+                        },
+                      ),
+                    )));
           },
         ));
       }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jd_app/page/shezhi.dart';
 
 class UserPage extends StatefulWidget {
   UserPage({Key key}) : super(key: key);
@@ -11,7 +12,22 @@ class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('我的')),
+      appBar: PreferredSize(
+        child: AppBar(
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return new SheZhiPage();
+                }));
+              },
+            ),
+          ],
+        ),
+        preferredSize: Size.fromHeight(40.0),
+      ),
       body: ListView(
         children: <Widget>[
           _getUserHeader(),
@@ -28,7 +44,8 @@ class _UserPageState extends State<UserPage> {
   Widget _getUserHeader() {
     return Container(
       width: double.infinity,
-      height: 140,
+      height: 120,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
             colors: [Color(0xFFE43B3A), Color(0xFFF07157)]),

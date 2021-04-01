@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:jd_app/page/index_page.dart';
+import 'package:jd_app/page/shezhi.dart';
 
 //配置路由
 final routes = {
   '/':(context) => IndexPage(),
+  '/shezhi':(context) => SheZhiPage(),
 };
 
 var onGenerateRoute = (RouteSettings settings) {

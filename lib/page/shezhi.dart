@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'user_page1.dart';
 
 class SheZhiPage extends StatefulWidget {
   SheZhiPage({Key key}) : super(key: key);
@@ -27,12 +28,11 @@ class _SheZhiPageState extends State<SheZhiPage> {
             _getMyproperty(),
             _divider(),
             _getCollection(),
+            _divider(),
             SizedBox(
               height: 50,
             ),
-             _divider(),
             _getSide(),
-            _divider(),
           ],
         ),
       ),
@@ -64,7 +64,11 @@ class _SheZhiPageState extends State<SheZhiPage> {
         children: <Widget>[
           Container(
             child: Text("昵称"),
-          )
+          ),
+          Spacer(),
+          Container(
+            child: Text("198****9707   "),
+          ),
         ],
       ),
     );
@@ -79,7 +83,11 @@ class _SheZhiPageState extends State<SheZhiPage> {
         children: <Widget>[
           Container(
             child: Text("隐私协议"),
-          )
+          ),
+          Spacer(),
+          Container(
+            child: Text("~      "),
+          ),
         ],
       ),
     );
@@ -94,7 +102,11 @@ class _SheZhiPageState extends State<SheZhiPage> {
         children: <Widget>[
           Container(
             child: Text("版本更新"),
-          )
+          ),
+          Spacer(),
+          Container(
+            child: Text("当前为最新版本v1.1.2   "),
+          ),
         ],
       ),
     );
@@ -108,9 +120,16 @@ class _SheZhiPageState extends State<SheZhiPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            child: Text("退出登录"),
-          )
+          RaisedButton(
+          child:Text('退出登录'),
+          onPressed:(){
+            Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return new UserPage1();
+                }));
+          },
+          color:Theme.of(context).accentColor,
+          textTheme:ButtonTextTheme.primary
+        ),
         ],
       ),
     );

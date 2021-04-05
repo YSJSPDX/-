@@ -107,16 +107,16 @@ class _UserPage1State extends State<UserPage1> {
                         SizedBox(
                           width: 20,
                         ),
-                        RaisedButton(
-                            child: Text('注册'),
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) {
-                                return new RegisterFistPage();
-                              }));
-                            },
-                            color: Colors.white,
-                            textTheme: ButtonTextTheme.primary),
+                        // RaisedButton(
+                        //     child: Text('注册'),
+                        //     onPressed: () {
+                        //       Navigator.push(context,
+                        //           MaterialPageRoute(builder: (_) {
+                        //         return new RegisterFistPage();
+                        //       }));
+                        //     },
+                        //     color: Colors.white,
+                        //     textTheme: ButtonTextTheme.primary),
                       ],
                     ),
                   ],

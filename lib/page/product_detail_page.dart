@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:jd_app/model/product_detail_model.dart';
 import 'package:jd_app/page/cart_page.dart';
+import 'package:jd_app/page/index_page.dart';
 import 'package:jd_app/provider/bottom_navi_provider.dart';
 import 'package:jd_app/provider/cart_provider.dart';
 import 'package:jd_app/provider/product_detail_provider.dart';
@@ -145,7 +146,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
                 onTap: () {
                   //购物车
-                  Navigator.pushNamed(context, '/');
+                  // Navigator.pushNamed(context, '/');
+                  Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) {
+                                return new IndexPage();
+                              }));
                   // Navigator.of(context).popUntil((route) => route.settings.name.startsWith('/'));
                   // Navigator.popUntil(context,ModalRoute.withName("/"));
                    Provider.of<BottomNaviProvider>(context,listen: false).changeBottomNaviIndex(3);
